@@ -19,6 +19,7 @@
     <description>Pet Clinic Project with Spring</description>
     <properties>
         <java.version>11</java.version>
+        <project.scm.id>my-scm-server</project.scm.id>
     </properties>
 
     <build>
@@ -39,6 +40,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
+                    <version>2.5.3</version>
                     <configuration>
                         <!-- by default, it is deploy but deploy (see Maven LifeCycle)
                          runs compile, test, package, verify, install, site and then deploy in the Lifecycle
