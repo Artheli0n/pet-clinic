@@ -44,6 +44,7 @@
                          runs compile, test, package, verify, install, site and then deploy in the Lifecycle
                           so it is too much for what we want here-->
                         <goals>install</goals>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
                     </configuration>
                 </plugin>
             </plugins>
