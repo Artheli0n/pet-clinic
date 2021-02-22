@@ -53,6 +53,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/Artheli0n/pet-clinic.git</developerConnection>
+        <tag>HEAD</tag>
     </scm>
 
 </project>
