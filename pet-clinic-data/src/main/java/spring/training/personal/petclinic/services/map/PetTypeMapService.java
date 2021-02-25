@@ -1,31 +1,31 @@
 package spring.training.personal.petclinic.services.map;
 
-import spring.training.personal.petclinic.model.Pet;
-import spring.training.personal.petclinic.services.PetService;
+import spring.training.personal.petclinic.model.PetType;
+import spring.training.personal.petclinic.services.PetTypeService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
+public class PetTypeMapService extends AbstractMapService<PetType, Long> implements PetTypeService {
 
     @Override
-    public Set<Pet> findAll() {
+    public Set<PetType> findAll() {
         return super.findAll();
     }
 
     @Override
-    public Pet findById(final Long id) {
+    public PetType findById(final Long id) {
         return super.findById(id);
     }
 
     @Override
-    public Pet save(final Pet object) {
+    public PetType save(final PetType object) {
         return super.save(object);
     }
 
     @Override
-    public void delete(final Pet object) {
+    public void delete(final PetType object) {
         super.delete(object);
     }
 
