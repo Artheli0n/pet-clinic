@@ -1,13 +1,25 @@
 package spring.training.personal.petclinic.services.map;
 
 import spring.training.personal.petclinic.model.Owner;
+import spring.training.personal.petclinic.model.Pet;
 import spring.training.personal.petclinic.services.OwnerService;
+import spring.training.personal.petclinic.services.PetService;
+import spring.training.personal.petclinic.services.PetTypeService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+
+    private final PetTypeService petTypeService;
+    private final PetService petService;
+
+    public OwnerServiceMap(final PetTypeService petTypeService, final PetService petService) {
+        this.petTypeService = petTypeService;
+        this.petService = petService;
+    }
+
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
@@ -20,7 +32,31 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner save(final Owner object) {
-        return super.save(object);
+
+        if (object != null) {
+            if (object.getPets() != null) {
+                object.getPets().forEach(pet -> {
+                            if(pet.getType() != null) {
+                                if(pet.getType().getId() == null) {
+                                    pet.setType(petTypeService.save(pet.getType()));
+                                }
+                            } else {
+                                throw new RuntimeException("Pet Type is required");
+                            }
+
+                            if (pet.getId() == null) {
+                                Pet savedPet = petService.save(pet);
+                                pet.setId(savedPet.getId());
+                            }
+                        }
+                );
+            }
+
+            return super.save(object);
+        } else {
+            return null;
+        }
+
     }
 
     @Override
