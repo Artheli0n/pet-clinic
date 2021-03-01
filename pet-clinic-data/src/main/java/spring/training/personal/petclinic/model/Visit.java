@@ -2,6 +2,7 @@ package spring.training.personal.petclinic.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalDate;
@@ -17,7 +18,7 @@ public class Visit extends BaseEntity {
     private String description;
 
     @ManyToOne
-    @Column(name = "pet_id")
+    @JoinColumn(name = "pet_id")
     private Pet pet;
 
     public LocalDate getDate() {
