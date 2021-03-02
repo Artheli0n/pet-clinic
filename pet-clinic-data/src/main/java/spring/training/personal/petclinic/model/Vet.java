@@ -1,5 +1,11 @@
 package spring.training.personal.petclinic.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -11,6 +17,11 @@ import java.util.Set;
 
 @Entity
 @Table(name = "vets")
+@Data
+@EqualsAndHashCode(callSuper = true, of = {})
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
 public class Vet extends Person {
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -20,11 +31,4 @@ public class Vet extends Person {
             inverseJoinColumns = @JoinColumn(name = "specility_id"))
     private Set<Speciality> specialities = new HashSet<>();
 
-    public Set<Speciality> getSpecialities() {
-        return specialities;
-    }
-
-    public void setSpecialities(final Set<Speciality> specialities) {
-        this.specialities = specialities;
-    }
 }

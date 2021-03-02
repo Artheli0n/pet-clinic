@@ -1,5 +1,11 @@
 package spring.training.personal.petclinic.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -9,6 +15,11 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "visits")
+@Data
+@EqualsAndHashCode(callSuper = true, of = {})
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
 public class Visit extends BaseEntity {
 
     @Column(name = "date")
@@ -21,27 +32,4 @@ public class Visit extends BaseEntity {
     @JoinColumn(name = "pet_id")
     private Pet pet;
 
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(final LocalDate date) {
-        this.date = date;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(final String description) {
-        this.description = description;
-    }
-
-    public Pet getPet() {
-        return pet;
-    }
-
-    public void setPet(final Pet pet) {
-        this.pet = pet;
-    }
 }
