@@ -71,7 +71,8 @@
                     <configuration>
                         <wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory
                         </wroManagerFactory>
-                        <cssDestinationFolder>${project.build.directory}/classes/static/resources/css</cssDestinationFolder>
+                        <cssDestinationFolder>${project.build.directory}/classes/static/resources/css
+                        </cssDestinationFolder>
                         <wroFile>${basedir}/src/main/wro/wro.xml</wroFile>
                         <extraConfigFile>${basedir}/src/main/wro/wro.properties</extraConfigFile>
                         <contextFolder>${basedir}/src/main/less</contextFolder>
@@ -89,8 +90,33 @@
                         </dependency>
                     </dependencies>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>3.0.0-M5</version>
+                    <configuration>
+                        <includes>
+                            <include>**/*IT.java</include>
+                        </includes>
+                        <useSystemClassLoader>false</useSystemClassLoader>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>integration-test</goal>
+                                <goal>verify</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
     <scm>
