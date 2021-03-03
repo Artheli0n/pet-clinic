@@ -38,8 +38,8 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
         if (object != null) {
             if (object.getPets() != null) {
                 object.getPets().forEach(pet -> {
-                            if(pet.getType() != null) {
-                                if(pet.getType().getId() == null) {
+                            if (pet.getType() != null) {
+                                if (pet.getType().getId() == null) {
                                     pet.setType(petTypeService.save(pet.getType()));
                                 }
                             } else {
@@ -73,6 +73,10 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner findByLastName(final String lastName) {
-        return null;
+        return this.findAll()
+                .stream()
+                .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
+                .findFirst()
+                .orElse(null);
     }
 }
