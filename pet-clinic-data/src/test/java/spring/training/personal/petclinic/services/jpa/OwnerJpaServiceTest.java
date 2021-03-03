@@ -48,7 +48,7 @@ class OwnerJpaServiceTest {
 
     @BeforeEach
     void setUp() {
-        returnOwner = Owner.builder().id(OWNER_ID).build();
+        returnOwner = Owner.builder().id(OWNER_ID).lastName("Smith").build();
     }
 
     @Test
