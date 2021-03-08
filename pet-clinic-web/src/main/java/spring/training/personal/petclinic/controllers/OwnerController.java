@@ -47,7 +47,7 @@ public class OwnerController {
         }
 
         // find owners by last name
-        List<Owner> results = this.ownerService.findAllByLastNameLike(owner.getLastName());
+        List<Owner> results = this.ownerService.findAllByLastNameContaining(owner.getLastName());
         if (results.isEmpty()) {
             // no owners found
             result.rejectValue("lastName", "notFound", "not found");

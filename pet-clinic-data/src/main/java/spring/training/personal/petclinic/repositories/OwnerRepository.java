@@ -10,6 +10,6 @@ public interface OwnerRepository extends CrudRepository<Owner, Long> {
 
     Optional<Owner> findByLastName(String lastName);
 
-    List<Owner> findAllByLastNameLike(String lastName);
+    List<Owner> findAllByLastNameContaining(String lastName);
 
 }

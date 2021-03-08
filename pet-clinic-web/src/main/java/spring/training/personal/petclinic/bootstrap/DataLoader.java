@@ -107,10 +107,6 @@ public class DataLoader implements CommandLineRunner {
 
         visitService.save(catVisit);
 
-        Owner owner = Owner.builder().lastName("Bob").build();
-        ownerService.save(owner);
-        System.out.println(owner.getId());
-
         System.out.println("Loaded Owners....");
 
         Vet vet1 = new Vet();

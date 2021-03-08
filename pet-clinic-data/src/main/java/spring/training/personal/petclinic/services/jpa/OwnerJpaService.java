@@ -65,7 +65,7 @@ public class OwnerJpaService implements OwnerService {
     }
 
     @Override
-    public List<Owner> findAllByLastNameLike(final String lastName) {
-        return ownerRepository.findAllByLastNameLike(lastName);
+    public List<Owner> findAllByLastNameContaining(final String lastName) {
+        return ownerRepository.findAllByLastNameContaining(lastName);
     }
 }
