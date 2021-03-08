@@ -15,4 +15,9 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @SuperBuilder
 public class PetType extends NamedEntity {
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
