@@ -42,4 +42,14 @@ public class Pet extends NamedEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
     private Set<Visit> visits = new HashSet<>();
 
+    public void addVisit(Visit visit) {
+        if (visit != null) {
+            if (this.visits == null) {
+                this.visits = new HashSet<>();
+            }
+            this.visits.add(visit);
+            visit.setPet(this);
+        }
+    }
+
 }

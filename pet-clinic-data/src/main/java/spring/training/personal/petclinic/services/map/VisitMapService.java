@@ -40,4 +40,11 @@ public class VisitMapService extends AbstractMapService<Visit, Long> implements 
     public void deleteById(final Long aLong) {
         super.deleteById(aLong);
     }
+
+//    @Override
+//    public Set<Visit> findByPetId(final Long petId) {
+//
+//        // TODO
+//        return null;
+//    }
 }

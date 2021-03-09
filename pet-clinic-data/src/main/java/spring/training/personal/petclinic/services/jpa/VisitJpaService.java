@@ -47,4 +47,9 @@ public class VisitJpaService implements VisitService {
     public void deleteById(final Long aLong) {
         visitRepository.deleteById(aLong);
     }
+
+//    @Override
+//    public Set<Visit> findByPetId(final Long petId) {
+//        return null;
+//    }
 }
