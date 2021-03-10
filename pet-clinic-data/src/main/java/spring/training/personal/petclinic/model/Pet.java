@@ -25,7 +25,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-@ToString(exclude = {"owner"})
+@ToString(exclude = {"owner", "visits"})
 public class Pet extends NamedEntity {
 
     @Column(name = "birth_date")
